@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive telemedicine services for modern healthcare. Schedule appointments, consult doctors, and access quality health services.">
+    <meta name="keywords" content="telemedicine, healthcare, virtual consultations, medical appointments, health services">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair:opsz,wght@5..1200,300..900&display=swap">
+    <link rel="stylesheet" href="C:\Users\HP\Desktop\plp_24\Telemedicine\Telemedicine-frontend\css\booking.css">
+    <title>Appointment Form</title>
+</head>
+<body>
+    <!-- Booking Form Section -->
+    <section class="booking">
+        <div class="bookingContainer">
+            <h2>Book an Appointment</h2>
+            <form id="bookingForm">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+    
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+    
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone" name="phone" placeholder="Enter your phone number" required>
+    
+                <label for="service">Select Service</label>
+                <select id="service" name="service" required>
+                    <option value="consultation">Consultation</option>
+                    <option value="checkup">Check-up</option>
+                    <option value="therapy">Therapy</option>
+                </select>
+    
+                <label for="date">Appointment Date</label>
+                <input type="date" id="date" name="date" required>
+    
+                <label for="time">Appointment Time</label>
+                <input type="time" id="time" name="time" required>
+    
+                <button type="submit" class="btn">Book Appointment</button>
+            </form>
+        </div>
+    </section>
+    
+    <script src="C:\Users\HP\Desktop\plp_24\Telemedicine\Telemedicine-frontend\Js\script.js"></script>
+</body>
+</html>

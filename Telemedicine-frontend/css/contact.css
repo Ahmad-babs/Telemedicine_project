@@ -1,0 +1,132 @@
+/* Contact Form Styles */
+.contact {
+    background-color: #bdf1a5;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    min-height: 100vh;
+}
+
+.contactContainer {
+    background: #fff;
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 40px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.contactContainer h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #000;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contactContainer form label {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: #e0501b;
+    margin-bottom: 8px;
+}
+
+.contactContainer form input,
+.contactContainer form textarea {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 1rem;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+}
+
+.contactContainer form input:focus,
+.contactContainer form textarea:focus {
+    border-color: #0076ff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 118, 255, 0.5);
+}
+
+.contactContainer form .btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #0076ff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.contactContainer form .btn:hover {
+    background-color: #005bb5;
+}
+
+.contactContainer form .btn:active {
+    background-color: #004599;
+}
+
+/* Responsive Styling */
+@media screen and (max-width: 768px) {
+    .contactContainer {
+        padding: 30px;
+    }
+
+    .contactContainer h2 {
+        font-size: 1.8rem;
+    }
+
+    .contactContainer form label {
+        font-size: 1rem;
+    }
+
+    .contactContainer form input,
+    .contactContainer form textarea {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+
+    .contactContainer form .btn {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .contact {
+        padding: 30px 10px;
+    }
+
+    .contactContainer {
+        padding: 20px;
+    }
+
+    .contactContainer h2 {
+        font-size: 1.5rem;
+    }
+
+    .contactContainer form label {
+        font-size: 0.9rem;
+    }
+
+    .contactContainer form input,
+    .contactContainer form textarea {
+        font-size: 0.8rem;
+        padding: 8px;
+    }
+
+    .contactContainer form .btn {
+        padding: 8px;
+        font-size: 0.8rem;
+    }
+}

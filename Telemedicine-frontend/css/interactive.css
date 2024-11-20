@@ -1,0 +1,113 @@
+/* Interactive Buttons Styles */
+.interactive {
+    background-color: #eef5f9;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.interactiveContainer {
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+}
+
+.interactiveContainer h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #000;
+    margin-bottom: 30px;
+}
+
+.buttonsGroup {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.buttonItem {
+    width: 100%;
+    max-width: 250px;
+}
+
+.buttonItem .btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    font-family: 'Playfair Display', serif;
+    color: #fff;
+    background-color: #0076ff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.buttonItem .btn:hover {
+    background-color: #005bb5;
+    transform: scale(1.05);
+}
+
+.buttonItem .btn:active {
+    background-color: #004599;
+}
+
+.infoText {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: #333;
+    margin-top: 10px;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    display: none;
+}
+
+/* Responsive Styling */
+@media screen and (max-width: 768px) {
+    .interactiveContainer h2 {
+        font-size: 2rem;
+    }
+
+    .buttonItem {
+        max-width: 200px;
+    }
+
+    .buttonItem .btn {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .infoText {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .interactive {
+        padding: 30px 10px;
+    }
+
+    .interactiveContainer h2 {
+        font-size: 1.8rem;
+    }
+
+    .buttonItem {
+        max-width: 180px;
+    }
+
+    .buttonItem .btn {
+        font-size: 0.8rem;
+        padding: 8px;
+    }
+
+    .infoText {
+        font-size: 0.8rem;
+        padding: 8px;
+    }
+}
