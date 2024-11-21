@@ -13,10 +13,15 @@ app.use(express.json());
 // Import routes
 const authRoutes = require('./routes/authRoutes');
 const appointmentRoutes = require('./routes/appointmentRoutes');
+const messageRoutes = require('./routes/messageRoutes');
+const prescriptionRoutes = require('./routes/prescriptionRoutes');
+
 
 // Use routes
 app.use('/api/auth', authRoutes); // Auth routes for login and signup
 app.use('/api/appointments', appointmentRoutes); // Appointment-related routes
+app.use('/api/messages', messageRoutes);
+app.use('/prescriptions', prescriptionRoutes);
 
 // Test route to verify database connection
 app.get('/test-db', (req, res) => {
