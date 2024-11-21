@@ -1,13 +1,22 @@
 // Importing dependencies
 const express = require('express');
 const db = require('./database/db');
+const dotenv = require('dotenv');
 
+require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(express.json());
 
+// Import routes
+const authRoutes = require('./routes/authRoutes');
+const appointmentRoutes = require('./routes/appointmentRoutes');
+
+// Use routes
+app.use('/api/auth', authRoutes); // Auth routes for login and signup
+app.use('/api/appointments', appointmentRoutes); // Appointment-related routes
 
 // Test route to verify database connection
 app.get('/test-db', (req, res) => {
