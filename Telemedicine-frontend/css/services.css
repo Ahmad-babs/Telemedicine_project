@@ -1,0 +1,154 @@
+/* General Styles */
+body, html {
+    background-color: #bdf1a5;
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header/Nav Styles */
+.nav {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px 0 25px;
+    background-color: #bdf1a5;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.10);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.nav .links a {
+    margin-right: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+}
+
+.nav .links .mainlink {
+    color: #e0501b;
+}
+
+.nav .links a:hover {
+    color: #0076ff;
+}
+
+/* Services Section */
+.services-section {
+    padding: 100px 25px 50px;
+}
+
+.services-intro {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.services-intro h1 {
+    font-size: 36px;
+    color: #000;
+    margin-bottom: 20px;
+}
+
+.services-intro p {
+    font-size: 18px;
+    color: #444;
+    line-height: 1.8;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.service-list {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.service-card {
+    width: 40%; /* Adjusted to fit 2 cards per line */
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.service-card img {
+    /* max-width: 100%; */
+    border-radius: 10px;
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.service-card h2 {
+    font-size: 20px;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.service-card p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Footer Styles */
+.footer {
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px;
+    background-color: #bdf1a5;
+    margin-top: 1px;
+}
+
+.footerLinks a {
+    margin: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footerLinks .mainlink {
+    color: #e0501b;
+}
+
+.footerLinks a:hover {
+    color: #0076ff;
+}
+
+.footer .ref {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+}
+
+/* Responsiveness */
+@media only screen and (max-width: 768px) {
+    .service-list {
+        justify-content: center;
+    }
+
+    .service-card {
+        width: 45%; /* Adjusted to fit 2 cards per line */
+    }
+}

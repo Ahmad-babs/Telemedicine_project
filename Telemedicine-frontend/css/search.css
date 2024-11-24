@@ -30,7 +30,7 @@
     display: block;
     font-family: 'Playfair Display', serif;
     font-size: 1.2rem;
-    color: #0076ff;
+    color: #005bb5; /* Darkened for better contrast */
     margin-bottom: 8px;
 }
 
@@ -43,6 +43,7 @@
     border-radius: 5px;
     margin-bottom: 20px;
     font-family: 'Playfair Display', serif;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .searchContainer form input:focus {
@@ -63,7 +64,7 @@
     border-radius: 5px;
     cursor: pointer;
     text-align: center;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .searchContainer form .btn:hover {
@@ -81,6 +82,25 @@
     font-family: 'Playfair Display', serif;
     font-size: 1rem;
     color: #333;
+}
+
+.searchResults .resultItem:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+.searchResults .resultItem:nth-child(even) {
+    background-color: #f1f1f1;
+}
+
+.searchResults .resultsTitle {
+    font-size: 1.5rem;
+    color: #0076ff;
+    margin-bottom: 10px;
+}
+
+.searchResults .noResults {
+    font-size: 1.2rem;
+    color: #555;
 }
 
 /* Responsive Styling */

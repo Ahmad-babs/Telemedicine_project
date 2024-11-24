@@ -93,13 +93,24 @@ form input:focus {
 }
 
 /* Responsive Design */
-@media only screen and (max-width: 600px) {
+
+/* Medium Screens: 768px and below */
+@media screen and (max-width: 768px) {
     .signupContainer {
-        padding: 20px;
+        padding: 30px 20px;
     }
 
     .signupContainer h2 {
         font-size: 20px;
+    }
+
+    form label {
+        font-size: 12px;
+    }
+
+    form input {
+        font-size: 12px;
+        padding: 8px;
     }
 
     .btn {
@@ -109,5 +120,43 @@ form input:focus {
 
     .loginPrompt {
         font-size: 12px;
+    }
+}
+
+/* Small Screens: 480px and below */
+@media screen and (max-width: 480px) {
+    body, html {
+        height: auto;
+        padding: 10px;
+    }
+
+    .signup {
+        padding: 15px 10px;
+    }
+
+    .signupContainer {
+        padding: 20px 15px;
+    }
+
+    .signupContainer h2 {
+        font-size: 18px;
+    }
+
+    form label {
+        font-size: 11px;
+    }
+
+    form input {
+        font-size: 11px;
+        padding: 6px;
+    }
+
+    .btn {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .loginPrompt {
+        font-size: 10px;
     }
 }

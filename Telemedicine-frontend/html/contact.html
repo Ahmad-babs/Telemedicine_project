@@ -10,13 +10,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair:opsz,wght@5..1200,300..900&display=swap">
     <title>Contact Us</title>
-    <link rel="stylesheet" href="C:\Users\HP\Desktop\plp_24\Telemedicine\Telemedicine-frontend\css\contact.css">
+    <link rel="stylesheet" href="../css/contact.css">
 </head>
 <body>
+    <div class="nav">
+        <div class="logo">
+            <p><span style="color: #e0501b; font-size: 5vw;"><strong>H</strong></span> &nbsp;&nbsp;<span style="font-size: 3vw;"><strong>H</strong></span>ealthCare</p>
+        </div>
+        <div class="links">
+            <a href="index.html" class="mainlink">Home</a>
+            <a href="about.html">About</a>
+            <a href="doctors.html">Doctors</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </div>
+
     <section class="contact">
         <div class="contactContainer">
             <h2>Contact Us</h2>
-            <form id="contactForm">
+            <form id="contactForm" action="your_backend_handler_url" method="POST">
                 <label for="name">Your Name</label>
                 <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
@@ -27,14 +40,28 @@
                 <input type="text" id="subject" name="subject" placeholder="Enter the subject" required>
 
                 <label for="message">Message</label>
-                <textarea id="message" name="message" placeholder="Write your message" rows="5" required></textarea>
+                <textarea id="message" name="message" placeholder="Write your message" rows="5" required maxlength="500"></textarea>
 
                 <button type="submit" class="btn">Send Message</button>
             </form>
         </div>
     </section>
 
+    <!-- Footer Section -->
+    <div class="footer">
+        <h1>H Healthcare</h1>
+        <div class="footerLinks">
+            <a href="index.html" class="mainlink">Home</a>
+            <a href="about.html">About</a>
+            <a href="doctors.html">Doctors</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="ref">
+            <p>&copy; 2024 H.Healthcare. All Rights Reserved.</p>
+        </div>
+    </div>
 
-    <script src="C:\Users\HP\Desktop\plp_24\Telemedicine\Telemedicine-frontend\Js\script.js"></script>
+    <script src="../Js/script.js"></script>
 </body>
 </html>

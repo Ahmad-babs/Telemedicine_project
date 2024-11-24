@@ -93,18 +93,64 @@ form input:focus {
 }
 
 /* Responsive Design */
-@media only screen and (max-width: 600px) {
+
+/* For tablets and medium devices (max-width: 768px) */
+@media only screen and (max-width: 768px) {
+    .loginContainer {
+        padding: 30px 20px;
+    }
+
+    .loginContainer h2 {
+        font-size: 22px;
+    }
+
+    form label {
+        font-size: 13px;
+    }
+
+    form input {
+        padding: 8px;
+        font-size: 13px;
+    }
+
+    .btn {
+        padding: 10px;
+        font-size: 15px;
+    }
+
+    .signupPrompt {
+        font-size: 13px;
+    }
+}
+
+/* For mobile and small devices (max-width: 480px) */
+@media only screen and (max-width: 480px) {
+    body, html {
+        height: auto;
+        padding: 10px;
+    }
+
     .loginContainer {
         padding: 20px;
+        max-width: 90%;
     }
 
     .loginContainer h2 {
         font-size: 20px;
     }
 
+    form label {
+        font-size: 12px;
+    }
+
+    form input {
+        padding: 7px;
+        font-size: 12px;
+    }
+
     .btn {
+        padding: 8px;
         font-size: 14px;
-        padding: 8px 16px;
     }
 
     .signupPrompt {
