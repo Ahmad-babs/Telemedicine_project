@@ -31,142 +31,118 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     highlightActiveNavLink();
 
-    // Generic form handling function
-    const handleFormSubmission = (form, validationCallback, successMessage) => {
-        form.addEventListener("submit", event => {
+    // Signup form handling
+    const signupForm = document.getElementById("signupForm");
+    if (signupForm) {
+        signupForm.addEventListener("submit", async (event) => {
             event.preventDefault();
-            if (validationCallback()) {
-                alert(successMessage);
-                form.reset();
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
+            const confirmPassword = document.getElementById("confirmPassword").value.trim();
+
+            if (!name || !email || !password || password !== confirmPassword) {
+                alert("Please check your input.");
+                return;
+            }
+
+            try {
+                const response = await fetch("http://localhost:3000/signup", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ name, email, password }),
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    alert("Sign-up successful! Welcome.");
+                    signupForm.reset();
+                } else {
+                    alert(result.message || "Error signing up.");
+                }
+            } catch (error) {
+                alert("Network error. Please try again later.");
             }
         });
-    };
+    }
 
-    // Handle multiple forms
-    const forms = [
-        {
-            id: "signupForm",
-            validation: () => {
-                const name = document.getElementById("name").value.trim();
-                const email = document.getElementById("email").value.trim();
-                const password = document.getElementById("password").value;
-                const confirmPassword = document.getElementById("confirmPassword").value;
+    // Login form handling
+    const loginForm = document.getElementById("loginForm");
+    if (loginForm) {
+        loginForm.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
 
-                if (!name || !email || !password || !confirmPassword) {
-                    alert("Please fill in all fields.");
-                    return false;
+            if (!email || !password) {
+                alert("Please enter your email and password.");
+                return;
+            }
+
+            try {
+                const response = await fetch("http://localhost:3000/login", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ email, password }),
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    alert("Login successful!");
+                    localStorage.setItem("authToken", result.token); // Save token
+                    window.location.href = "/dashboard.html"; // Redirect to a secure page
+                } else {
+                    alert(result.message || "Invalid credentials.");
                 }
-                if (password !== confirmPassword) {
-                    alert("Passwords do not match.");
-                    return false;
-                }
-                return true;
-            },
-            message: "Sign-up successful! Welcome to H.Healthcare."
-        },
-        {
-            id: "loginForm",
-            validation: () => {
-                const email = document.getElementById("email").value.trim();
-                const password = document.getElementById("password").value;
-
-                if (!email || !password) {
-                    alert("Please enter your email and password.");
-                    return false;
-                }
-                return true;
-            },
-            message: "Login successful! Welcome back to H.Healthcare."
-        },
-        {
-            id: "bookingForm",
-            validation: () => {
-                const name = document.getElementById("name").value.trim();
-                const email = document.getElementById("email").value.trim();
-                const phone = document.getElementById("phone").value.trim();
-                const service = document.getElementById("service").value;
-                const date = document.getElementById("date").value;
-                const time = document.getElementById("time").value;
-
-                if (!name || !email || !phone || !service || !date || !time) {
-                    alert("Please fill in all fields.");
-                    return false;
-                }
-                console.log({ name, email, phone, service, date, time });
-                return true;
-            },
-            message: "Your appointment has been successfully booked!"
-        },
-        {
-            id: "contactForm",
-            validation: () => {
-                const name = document.getElementById("name").value.trim();
-                const email = document.getElementById("email").value.trim();
-                const subject = document.getElementById("subject").value.trim();
-                const message = document.getElementById("message").value.trim();
-
-                if (!name || !email || !subject || !message) {
-                    alert("Please fill in all fields.");
-                    return false;
-                }
-                return true;
-            },
-            message: "Thank you for reaching out! We will respond to your message soon."
-        }
-    ];
-
-    forms.forEach(({ id, validation, message }) => {
-        const form = document.getElementById(id);
-        if (form) {
-            handleFormSubmission(form, validation, message);
-        }
-    });
-
-    // Services: Highlight cards on hover
-    const handleServiceCardHover = () => {
-        const serviceCards = document.querySelectorAll(".service-card");
-        serviceCards.forEach(card => {
-            card.addEventListener("mouseenter", () => {
-                card.style.transform = "scale(1.05)";
-                card.style.transition = "transform 0.3s ease";
-            });
-            card.addEventListener("mouseleave", () => {
-                card.style.transform = "scale(1)";
-            });
+            } catch (error) {
+                alert("Network error. Please try again later.");
+            }
         });
-    };
-    handleServiceCardHover();
+    }
 
-    // Doctors: Expand doctor details on click
-    const handleDoctorCardClick = () => {
-        const doctorCards = document.querySelectorAll(".doctor-card");
-        doctorCards.forEach(card => {
-            card.addEventListener("click", () => {
-                const details = card.querySelector("p:last-of-type");
-                if (details) {
-                    details.style.display = details.style.display === "none" ? "block" : "none";
+    // Appointment booking form handling
+    const bookingForm = document.getElementById("bookingForm");
+    if (bookingForm) {
+        bookingForm.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const phone = document.getElementById("phone").value.trim();
+            const service = document.getElementById("service").value;
+            const date = document.getElementById("date").value;
+            const time = document.getElementById("time").value;
+
+            if (!name || !email || !phone || !service || !date || !time) {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            try {
+                const response = await fetch("http://localhost:3000/appointments", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${localStorage.getItem("authToken")}`, // Include token
+                    },
+                    body: JSON.stringify({ name, email, phone, service, date, time }),
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    alert("Appointment booked successfully!");
+                    bookingForm.reset();
+                } else {
+                    alert(result.message || "Error booking appointment.");
                 }
-            });
+            } catch (error) {
+                alert("Network error. Please try again later.");
+            }
         });
-    };
-    handleDoctorCardClick();
-
-    // About Page: Toggle Core Values visibility
-    const handleCoreValuesToggle = () => {
-        const valuesList = document.querySelector(".values ul");
-        if (valuesList) {
-            const toggleValuesBtn = document.createElement("button");
-            toggleValuesBtn.textContent = "Toggle Core Values";
-            toggleValuesBtn.style.cssText =
-                "display: block; margin: 20px auto; padding: 10px 20px; background: #0076ff; color: #fff; border: none; cursor: pointer;";
-
-            valuesList.parentElement.insertBefore(toggleValuesBtn, valuesList);
-            toggleValuesBtn.addEventListener("click", () => {
-                valuesList.style.display = valuesList.style.display === "none" ? "block" : "none";
-            });
-        }
-    };
-    handleCoreValuesToggle();
+    }
 
     // Search form logic
     const searchForm = document.getElementById("searchForm");
@@ -183,8 +159,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Simulated search results
             const results = [
-                { name: "Dr. John Doe", service: "Consultation" },
-                { name: "Dr. Jane Smith", service: "Therapy" }
+                { name: "Dr. Ibrahim Bashir", service: "Cardiology" },
+                { name: "Dr. Mainasara Ali", service: "Pediatrics" },
+                { name: "Dr. Sarah Lee", service: "General Medicine" }
             ];
             const filteredResults = results.filter(item =>
                 item.name.toLowerCase().includes(searchInput.toLowerCase()) ||
